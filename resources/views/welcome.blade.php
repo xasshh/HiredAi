@@ -50,43 +50,55 @@
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                font-family: Arial, sans-serif;
+                font-family: 'Poppins', sans-serif;
             }
             body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background: linear-gradient(to right, #4A90E2, #50C9C3);
+                background: linear-gradient(to right, #1a1a2e, #16213e);
                 color: white;
                 text-align: center;
             }
             .container {
                 max-width: 600px;
-                padding: 20px;
+                padding: 40px;
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 15px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
             }
             h1 {
-                font-size: 2.5em;
+                font-size: 3em;
+                font-weight: 700;
+                margin-bottom: 10px;
             }
             p {
                 font-size: 1.2em;
                 margin: 15px 0;
+                opacity: 0.9;
             }
             .powered {
                 margin-top: 20px;
                 font-style: italic;
-                opacity: 0.8;
+                font-size: 1em;
+                opacity: 0.7;
+            }
+            .coming-soon {
+                font-size: 1.5em;
+                font-weight: 600;
+                color: #f9a826;
+                margin-top: 15px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <h1>JobSyncAI</h1>
-            <p>Connecting talent with opportunities through AI-driven recruitment. Stay tuned for something amazing!</p>
-            <p class="powered">Powered by X.Otech web solutions</p>
+            <p class="coming-soon">Coming Soon</p>
+            <p>Connecting talent with opportunities through AI-driven recruitment. Stay tuned for something revolutionary!</p>
+            <p class="powered">Powered by X.OTECH Web Solutions</p>
         </div>
     </body>
 
