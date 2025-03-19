@@ -98,6 +98,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <i class="fas fa-user"></i>
                         <input type="text" id="name" wire:model="name" placeholder="Enter your full name" required>
                     </div>
+                    @error('name') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
 
                 <!-- Email Address -->
@@ -107,8 +110,10 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="email" wire:model="email" placeholder="Enter your email" required>
                     </div>
+                    @error('email') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
-
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -119,8 +124,10 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    @error('password') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
-
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="password_confirmation">Confirm Password</label>
@@ -131,16 +138,20 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    @error('password_confirmation') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
-
                 <!-- Terms & Conditions -->
                 <div class="form-group terms-group">
                     <label class="terms-label">
                         <input type="checkbox" wire:model="terms" required>
                         <span>I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></span>
                     </label>
+                    @error('terms') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
-
                 <!-- Submit Button -->
                 <button type="submit" class="signup-btn">Create Account</button>
 
@@ -160,6 +171,12 @@ new #[Layout('components.layouts.auth')] class extends Component {
                 <div class="login-link">
                     <p>Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
                 </div>
+                
+@if (session()->has('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
             </form>
         </div>
     </section>

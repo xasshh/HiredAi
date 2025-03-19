@@ -1,18 +1,11 @@
-{{-- <x-layouts.app :title="__('Dashboard')">
-    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        
-    </div>
-</x-layouts.app> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-
-    <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet">    
-    <link href="{{ asset('frontend/css/profile.css') }}" rel="stylesheet">    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 
@@ -35,21 +28,8 @@
                     <li><a href="#">Saved Jobs</a></li>
                     <li><a href="#">Application Tracker</a></li>
                     <li><a href="#">Community & Networking</a></li>
-                    <li>
-                        <a href="{{ route('settings.profile') }}" class="px-4 py-2 flex items-center">
-                            <i class="fas fa-cog"></i> Settings
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}" class="w-full">
-                            @csrf
-                            <button type="submit" class="w-full text-left px-4 py-2 text-red-500 hover:text-red-700">
-                               Logout
-                            </button>
-                        </form>
-                    </li>
-                    
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -61,8 +41,7 @@
                 <div class="profile-image">
                     <img src="images/profile.jpg" alt="Profile Image">
                 </div>
-                <h2>Welcome, <span class="truncate font-semibold">{{ auth()->user()->name }}</span></h2>
-                <h2>{{ auth()->user()->email }}</span></h2>
+                <h2>Welcome, User</h2>
                 <div class="card">
                     <h5>Profile Progress</h5>
                     <div class="progress-container">
@@ -156,7 +135,37 @@
         </main>
     </div>
 
-    
-    <script src="{{ asset('frontend/js/script.js') }}"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hired AI</h3>
+                <p>Revolutionizing job search with AI technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#jobs">Jobs</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 X.OTECH Web Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/chart.js"></script>
 </body>
 </html>

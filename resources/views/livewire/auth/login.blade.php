@@ -134,6 +134,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="email" wire:model="email" placeholder="Enter your email" required autofocus autocomplete="email">
                     </div>
+                    @error('email') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
                 
                 <!-- Password -->
@@ -146,8 +149,11 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    @error('password') 
+                        <span class="error-message">{{ $message }}</span> 
+                    @enderror
                 </div>
-                
+
                 <!-- Remember Me & Forgot Password -->
                 <div class="form-options">
                     <label class="remember-me">
@@ -158,13 +164,18 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <a href="{{ route('password.request') }}" class="forgot-password">Forgot Password?</a>
                     @endif
                 </div>
+                @if (session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
                 
                 <!-- Submit Button -->
                 <button type="submit" class="login-btn">Sign In</button>
                 
                 <!-- Social Login -->
-                <div class="social-signup">
-                    <p>Or sign up with</p>
+                <div class="social-login">
+                    <p>Or continue with</p>
                     <div class="social-buttons">
                         <a href="{{ url('/auth/google/redirect') }}" class="social-btn google">
                             <i class="fab fa-google"></i> Google

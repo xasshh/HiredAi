@@ -15,7 +15,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
 
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
