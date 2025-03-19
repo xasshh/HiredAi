@@ -26,19 +26,7 @@ Route::get('/auth/{provider}/callback', function ($provider) {
 
     return redirect('/dashboard');
 });
-use App\Http\Controllers\AuthController;
 
-Route::get('auth/linkedin', [AuthController::class, 'redirectToLinkedIn'])->name('linkedin.login');
-Route::get('auth/linkedin/callback', [AuthController::class, 'handleLinkedInCallback']);
-
-
-use App\Http\Controllers\Auth\SocialAuthController;
-
-Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle']);
-Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
-
-Route::get('/auth/linkedin', [SocialAuthController::class, 'redirectToLinkedIn']);
-Route::get('/auth/linkedin/callback', [SocialAuthController::class, 'handleLinkedInCallback']);
 
 Route::get('/', function () {
     return view('welcome');
