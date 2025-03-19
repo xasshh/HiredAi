@@ -44,8 +44,8 @@
                     <li>
                         <form method="POST" action="{{ route('logout') }}" class="w-full">
                             @csrf
-                            <button type="submit" class="w-full text-left px-4 py-2 text-red-500 hover:text-red-700">
-                               Logout
+                            <button  class="w-full text-left px-4 py-2 text-red-500 hover:text-red-700">
+                                <i class="fas fa-sign-out-alt"></i> Logout
                             </button>
                         </form>
                     </li>
@@ -157,6 +157,6 @@
     </div>
 
     
-    <script src="{{ asset('frontend/js/script.js') }}"></script>
+    <script src="{{ asset('frontend/js/chart.js') }}"></script>
 </body>
 </html>
