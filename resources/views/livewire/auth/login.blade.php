@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Auth\Events\Lockout;
@@ -73,54 +74,151 @@ new #[Layout('components.layouts.auth')] class extends Component {
     }
 }; ?>
 
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
-
-    <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
-
-    <form wire:submit="login" class="flex flex-col gap-6">
-        <!-- Email Address -->
-        <flux:input
-            wire:model="email"
-            :label="__('Email address')"
-            type="email"
-            required
-            autofocus
-            autocomplete="email"
-            placeholder="email@example.com"
-        />
-
-        <!-- Password -->
-        <div class="relative">
-            <flux:input
-                wire:model="password"
-                :label="__('Password')"
-                type="password"
-                required
-                autocomplete="current-password"
-                :placeholder="__('Password')"
-            />
-
-            @if (Route::has('password.request'))
-                <flux:link class="absolute right-0 top-0 text-sm" :href="route('password.request')" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </flux:link>
-            @endif
+<div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hired AI - AI-Powered Job Matching Platform</title>
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="{{ asset('frontend/css/login.css') }}" rel="stylesheet">    
+        <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet">  
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Hired AI</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#features">Features <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#resume-parsing">Resume Parsing</a></li>
+                        <li><a href="#ai-scoring">AI Scoring</a></li>
+                        <li><a href="#job-matching">Job Matching</a></li>
+                        <li><a href="#application-tracker">Application Tracker</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#admin-dashboard">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Hired AI</h2>
+                <p>Sign in to continue to your account</p>
+            </div>
+            
+            <form wire:submit="login" class="login-form">
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" wire:model="email" placeholder="Enter your email" required autofocus autocomplete="email">
+                    </div>
+                </div>
+                
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" wire:model="password" placeholder="Enter your password" required autocomplete="current-password">
+                        <button type="button" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" wire:model="remember">
+                        <span>Remember me</span>
+                    </label>
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="forgot-password">Forgot Password?</a>
+                    @endif
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn">Sign In</button>
+                
+                <!-- Social Login -->
+                <div class="social-signup">
+                    <p>Or sign up with</p>
+                    <div class="social-buttons">
+                        <a href="{{ url('/auth/google/redirect') }}" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </a>
+                        <a href="{{ url('/auth/linkedin/redirect') }}" class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Sign Up Link -->
+                @if (Route::has('register'))
+                    <div class="signup-link">
+                        <p>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+                    </div>
+                @endif
+            </form>
         </div>
+    </section>
 
-        <!-- Remember Me -->
-        <flux:checkbox wire:model="remember" :label="__('Remember me')" />
-
-        <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full">{{ __('Log in') }}</flux:button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hired AI</h3>
+                <p>Revolutionizing job search with AI technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#jobs">Jobs</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
         </div>
-    </form>
-
-    @if (Route::has('register'))
-        <div class="space-x-1 text-center text-sm text-zinc-600 dark:text-zinc-400">
-            {{ __('Don\'t have an account?') }}
-            <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
+        <div class="footer-bottom">
+            <p>&copy; 2025 X.OTECH Web Solutions. All rights reserved.</p>
         </div>
-    @endif
+    </footer>
 </div>
+  <!-- Custom JavaScript -->
+  <script src="{{ asset('frontend/js/login.js') }}"></script>
+  <script src="{{ asset('frontend/js/script.js') }}"></script>
+
+</body>
+</html>

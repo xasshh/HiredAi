@@ -1,6 +1,6 @@
 <?php
 
-return [
+
 
     /*
     |--------------------------------------------------------------------------
@@ -13,6 +13,18 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    return [
+    'google' => [
+        'client_id' => env('884014158520-l932isp0rnvh50tem1ju164h8hu5uda6.apps.googleusercontent.com'),
+        'client_secret' => env('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'),
+        'redirect' => env('https://hiredai.com/auth/google/callback'),
+    ],
+
+    'linkedin' => [
+        'client_id' => env('77ad3show5wm8r'),
+        'client_secret' => env('WPL_AP1.4PyH7VXYD1BQTJ6d.6t1klw=='),
+        'redirect' => env('http://localhost:8000/auth/linkedin/callback'),
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
