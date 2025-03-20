@@ -21,6 +21,7 @@ class GoogleController extends Controller
     {
         $user = Socialite::driver('google')->user();
     
+        // Update user if exists, otherwise create a new one
         $existingUser = User::where('email', $user->email)->first();
         if (!$existingUser) {
             User::create([
@@ -37,7 +38,6 @@ class GoogleController extends Controller
         }
         Auth::login($existingUser);
         return redirect('/dashboard');
-        
     }
     
 }
