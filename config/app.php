@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

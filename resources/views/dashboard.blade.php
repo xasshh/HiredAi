@@ -62,7 +62,7 @@
                     <img src="images/profile.jpg" alt="Profile Image">
                 </div>
                 <h2>Welcome, <span class="truncate font-semibold">{{ auth()->user()->name }}</span></h2>
-                <h2>{{ auth()->user()->email }}</span></h2>
+                
                 <div class="card">
                     <h5>Profile Progress</h5>
                     <div class="progress-container">

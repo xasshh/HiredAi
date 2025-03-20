@@ -177,7 +177,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                 <div class="social-login">
                     <p>Or continue with</p>
                     <div class="social-buttons">
-                        <a href="{{ url('/auth/google/redirect') }}" class="social-btn google">
+                        <a href="{{ url('/auth/google') }}" class="social-btn google">
                             <i class="fab fa-google"></i> Google
                         </a>
                         <a href="{{ url('/auth/linkedin/redirect') }}" class="social-btn linkedin">

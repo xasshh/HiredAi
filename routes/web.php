@@ -5,6 +5,12 @@ use Livewire\Volt\Volt;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\GoogleController;
+
+
+route::get('auth/google',[GoogleController::class,'googlepage']);
+
+route::get('auth/google/callback',[GoogleController::class,'googlecallback']);
 
 Route::get('/auth/{provider}/redirect', function ($provider) {
     return Socialite::driver($provider)->redirect();
